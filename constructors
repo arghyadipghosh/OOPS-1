@@ -1,0 +1,141 @@
+Constructors are those meber fuctions having 
+1. same class name 
+2. no return type not even void
+3. called automatically i.e. called when an object is created .
+4. destroyed (destructor)  when the scope of the object gets over orrwhen the object ges destroyed
+
+
+there are 3 types of constructors:
+
+1. Defaut constructor:
+
+syntax:
+class class_name{
+ class_name()
+ {
+ }
+ };
+ int main()
+ {
+ class_name object_name;
+ }
+ 
+ e.g.:
+ class student{
+ student(){
+ }
+ };
+ int main(){
+ student s;
+ }
+ 
+
+ 
+2. Parameterized constructor
+
+class class_name{
+dataemember;
+memberfunction;
+ class_name(parameter1,parameter2.....)
+ {
+ }
+ };
+ int main()
+ {
+ class_name object_name(parameter1,parameter2.);
+ }
+ 
+ e.g.:
+ class student{
+ int age;
+ int roll;
+ student(int ){
+ }
+ };
+ int main(){
+ student s;
+ }
+ 
+3. Copy constructors:
+class class_name{
+ class_name()
+ {
+ }
+ };
+ int main()
+ {
+ class_name object_name_1;
+ class_name object_name2(object_name1);   -> a copy of objectname1 is created and stored  in obect_name2
+ }
+ 
+ e.g.:
+ class student{
+ student(){
+ }
+ };
+ int main(){
+ student s1;
+ student s2(s1);    -> a copy of s1 is created and stored in s1-> it simply means that s2 now has all the features and attributes of s1 and now can access all the                   
+ }                      features of s1
+ 
+ 
+ 
+ 
+ OBJECTS CAN BE DECLARED IN TWO WAYS:
+ 1.static object
+ 2.dynamic objects
+ 
+ 
+ DYNAMIC OBJECT DECLARATION:
+ 
+ class_name *object_name = new class_name();
+ class_name *object_name = new class_name(parameters);
+ 
+e.g:
+student *s1=new student();
+student *s2=new student(2);
+
+
+
+
+program:
+
+
+
+#include<iostream>
+using namespace std;
+#include "Student.cpp"
+
+int main(){
+
+    //Copy aSsignment operator
+    
+    Student s1(10, 1001);
+    Student s2(2, 2001);
+    Student *s3 = new Student(3, 3001);
+
+    s2 = s1;
+    *s3 = s1;
+
+    s2 = *s3;
+
+    delete s3;
+
+
+    Student s1(10, 1001);
+    cout<<"s1: ";
+    s1.display();
+    Student s2(s1); //Copy constructor
+    cout<<"s2: ";
+    s2.display();
+    Student *s3 = new Student(20, 2001);
+    cout<<"s3: ";
+    s3->display();
+    Student s4(*s3);
+    cout<<"S4 : ";
+    s4.display();
+    Student *s5 = new Student(*s3);
+    Student *s6 = new Student(s1);
+    s5 ->display();
+    s6 ->display()
+}
